@@ -1,20 +1,21 @@
-"""happy_tweets_back URL Configuration
 
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/2.0/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  path('', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
-Including another URLconf
-    1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
-"""
-from django.conf.urls import url, include
+from django.conf.urls import url
+from app import views
 
+# URLs
+
+# Authored by Tom Blacknell
+
+# Endpoint URLs are defined using regular expressions
+# Matched URLs sent to the relevant view
+
+# URL Patterns
 urlpatterns = [
-    url(r'^', include('app.urls')),
+    url(r'^api/total-tweets/(?P<weekView>[0-1])/$', views.total_tweets),
+    url(r'^api/tweet-rate/(?P<weekView>[0-1])/$', views.tweet_rate),
+    url(r'^api/latest-tweets/$', views.latest_tweets),
+    url(r'^api/tweet-locations/(?P<weekView>[0-1])$', views.tweet_locations),
+    url(r'^api/topic-explore/(?P<weekView>[0-1])$', views.topic_explore),
+    url(r'^api/topics/(?P<weekView>[0-1])$', views.topics),
+    url(r'^api/region-stats/(?P<region_name>[A-Za-z\s]*)/(?P<week_view>[0-1])$', views.region_stats)
 ]

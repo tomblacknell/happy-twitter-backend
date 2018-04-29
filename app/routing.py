@@ -1,5 +1,12 @@
+
 from channels.routing import ProtocolTypeRouter
 
+# Routing
+
+# Authored by Tom Blacknell
+
+# The route the the application
+
 application = ProtocolTypeRouter({
-    # Empty for now (http->django views is added by default)
+    # Empty
 })
